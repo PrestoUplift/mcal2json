@@ -24,11 +24,11 @@ make && make install
 
 I don't really have any intention of doing any of the following, but wanted some place to write them down.
 
-[] How's about some unit tests?<br \>
-[] Arbitrary Start/End times.<br \>
-[] Less hacky commandline arg parsing.<br \>
-[] Properly package for ease of installation and pull in dependencies.<br \>
-[] Brew formula?<br \>
+[] How's about some unit tests?<br />
+[] Arbitrary Start/End times.<br />
+[] Less hacky commandline arg parsing.<br />
+[] Properly package for ease of installation and pull in dependencies.<br />
+[] Brew formula?<br />
 
 # Inspiration
 
