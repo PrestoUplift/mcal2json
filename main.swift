@@ -5,6 +5,13 @@
 import Foundation
 import EventKit
 
+// see https://github.com/feedback-assistant/reports/issues/189
+extension EKParticipant {
+    public var safeURL : URL? {
+        perform(#selector(getter: EKParticipant.url))?.takeUnretainedValue() as? NSURL? as? URL
+    }
+}
+
 struct Config {
     let startTime : Date
     let endTime : Date
@@ -21,7 +28,11 @@ struct Person : Codable {
     init(fromEKParticipant participant: EKParticipant) {
         self.name = participant.name
         self.isCurrentUser = participant.isCurrentUser
-        self.url = participant.url.absoluteString
+        if let safeurl = participant.safeURL {
+            self.url = safeurl.absoluteString
+        } else {
+            self.url = ""
+        }
 
         switch participant.participantRole {
             case EKParticipantRole.chair:
